@@ -1,0 +1,81 @@
+/* Image protection — discourages casual save / drag / long-press download */
+
+.image-protected {
+  position: relative;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.image-protected::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: transparent;
+  cursor: inherit;
+}
+
+.image-protected img,
+.image-protected canvas {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+}
+
+.image-protected canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.image-protected canvas.hero__portrait-img {
+  position: absolute;
+  inset: 0;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.image-protected canvas.cert-modal__image {
+  width: 100%;
+  max-height: min(68vh, 640px);
+}
+
+/* Hero animation uses CSS background images */
+#hero__animation__img.image-protected {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* Preserve hover zoom after canvas swap */
+.project:hover .project__img,
+.project:hover .project__media canvas.project__img {
+  transform: scale(1.04);
+}
+
+.cert-card:hover .cert-card__visual img,
+.cert-card:focus-visible .cert-card__visual img,
+.cert-card:hover .cert-card__visual canvas,
+.cert-card:focus-visible .cert-card__visual canvas {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+}
+
+.image-protected canvas.hero__portrait-img {
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  .hero__portrait:hover canvas.hero__portrait-img--default,
+  .hero__portrait:focus-visible canvas.hero__portrait-img--default {
+    opacity: 0;
+  }
+
+  .hero__portrait:hover canvas.hero__portrait-img--hover,
+  .hero__portrait:focus-visible canvas.hero__portrait-img--hover {
+    opacity: 1;
+  }
+}
