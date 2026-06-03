@@ -44,10 +44,9 @@
     currentIndex = index;
     if (imageEl) {
       imageEl.alt = item.alt;
+      imageEl.src = item.image;
       if (window.PryzenImageProtection) {
         window.PryzenImageProtection.refreshImage(imageEl, item.image);
-      } else {
-        imageEl.src = item.image;
       }
     }
     if (titleEl) titleEl.textContent = item.title;

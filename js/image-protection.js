@@ -50,9 +50,25 @@
     img.addEventListener("dragstart", (e) => e.preventDefault());
   }
 
+  function isCertificateImage(img) {
+    return (
+      img.classList.contains("cert-modal__image") || Boolean(img.closest(".cert-card__visual"))
+    );
+  }
+
+  function protectCertificateImage(img) {
+    hardenImage(img);
+    img.dataset.canvasProtected = "true";
+    return Promise.resolve();
+  }
+
   function replaceWithCanvas(img) {
     if (!img || img.tagName !== "IMG" || img.dataset.canvasProtected === "true") {
       return Promise.resolve();
+    }
+
+    if (isCertificateImage(img)) {
+      return protectCertificateImage(img);
     }
 
     const run = () => {
@@ -85,10 +101,7 @@
 
             const ctx = canvas.getContext("2d");
             if (!ctx) throw new Error("Canvas unavailable");
-            const fit =
-              img.classList.contains("hero__portrait-img") || img.classList.contains("cert-modal__image")
-                ? "contain"
-                : "cover";
+            const fit = img.classList.contains("hero__portrait-img") ? "contain" : "cover";
             drawImage(ctx, loader, displayW, displayH, fit, img.classList.contains("hero__portrait-img"));
 
             canvas.dataset.canvasProtected = "true";
@@ -137,18 +150,23 @@
 
   function refreshImage(img, src) {
     if (!img) return Promise.resolve();
-    if (img.tagName === "CANVAS") {
-      const figure = img.closest(".cert-modal__figure");
-      if (!figure) return Promise.resolve();
+
+    if (img.tagName === "CANVAS" && img.classList.contains("cert-modal__image")) {
       const replacement = document.createElement("img");
       replacement.className = "cert-modal__image";
       replacement.alt = img.getAttribute("aria-label") || "";
       if (src) replacement.src = src;
       img.replaceWith(replacement);
-      img = replacement;
-    } else if (src) {
-      img.src = src;
+      return protectCertificateImage(replacement);
     }
+
+    if (isCertificateImage(img)) {
+      if (src) img.src = src;
+      img.dataset.canvasProtected = "";
+      return protectCertificateImage(img);
+    }
+
+    if (src) img.src = src;
     img.dataset.canvasProtected = "";
     hardenImage(img);
     return replaceWithCanvas(img);

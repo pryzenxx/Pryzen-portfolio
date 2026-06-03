@@ -26,10 +26,15 @@
   -webkit-touch-callout: none;
 }
 
-.image-protected canvas {
+.image-protected canvas:not(.cert-modal__image) {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.image-protected .cert-card__visual img,
+.image-protected .cert-modal__figure img {
+  pointer-events: none;
 }
 
 .image-protected canvas.hero__portrait-img {
@@ -37,11 +42,6 @@
   inset: 0;
   object-fit: contain;
   object-position: center bottom;
-}
-
-.image-protected canvas.cert-modal__image {
-  width: 100%;
-  max-height: min(68vh, 640px);
 }
 
 /* Hero animation uses CSS background images */
@@ -57,10 +57,7 @@
 }
 
 .cert-card:hover .cert-card__visual img,
-.cert-card:focus-visible .cert-card__visual img,
-.cert-card:hover .cert-card__visual canvas,
-.cert-card:focus-visible .cert-card__visual canvas {
-  transform: scale(1.04);
+.cert-card:focus-visible .cert-card__visual img {
   filter: brightness(1.05);
 }
 
