@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Graphic Design certificate">
+  <rect width="800" height="560" fill="#0a0a0c"/>
+  <rect x="32" y="32" width="736" height="496" fill="#12121a" rx="14"/>
+  <rect x="48" y="48" width="704" height="80" fill="rgba(124,244,212,0.12)" rx="8"/>
+  <text x="400" y="100" text-anchor="middle" fill="#f4f2ed" font-family="system-ui, sans-serif" font-size="20" font-weight="600" letter-spacing="2">GRAPHIC DESIGN EXCELLENCE</text>
+  <text x="400" y="220" text-anchor="middle" fill="#7cf4d4" font-family="Georgia, serif" font-size="42" font-style="italic">Recognition</text>
+  <text x="400" y="290" text-anchor="middle" fill="rgba(244,242,237,0.55)" font-family="system-ui, sans-serif" font-size="16">For outstanding creative work in branding,</text>
+  <text x="400" y="318" text-anchor="middle" fill="rgba(244,242,237,0.55)" font-family="system-ui, sans-serif" font-size="16">illustration, and visual communication.</text>
+  <text x="400" y="400" text-anchor="middle" fill="#f4f2ed" font-family="system-ui, sans-serif" font-size="18" font-weight="600">P. A. B. Devilleres</text>
+  <text x="400" y="480" text-anchor="middle" fill="rgba(244,242,237,0.35)" font-family="system-ui, sans-serif" font-size="12" letter-spacing="4">NORTHERN MINDANAO COLLEGES</text>
+</svg>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Geometric P: slanted parallelogram stem + left lip + separate chevron bowl -->
+  <rect width="64" height="64" fill="#0a0a0c"/>
+  <g fill="#f5f5f5">
+    <!-- stem: parallel slant; lip (6,14)-(25,14); left edge (25,14)-(17,50) -->
+    <path d="M 17 50 L 29 50 L 37 14 L 25 14 L 6 14 L 23 22 L 17 50 Z"/>
+    <!-- chevron bowl, small gap from stem -->
+    <path d="M 39 15 L 56 32 L 39 49 Z"/>
+  </g>
+</svg>

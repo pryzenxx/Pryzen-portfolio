@@ -1,0 +1,334 @@
+/* LIGHT MODE */
+
+body:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url(../assets/face-animation-light/bl-1.png)
+    url(../assets/face-animation-light/bl-2.png)
+    url(../assets/face-animation-light/bl-3.png)
+    url(../assets/face-animation-light/bl-4.png)
+    url(../assets/face-animation-light/bl-5.png)
+    url(../assets/face-animation-light/tr-1.png)
+    url(../assets/face-animation-light/tr-2.png)
+    url(../assets/face-animation-light/tr-3.png)
+    url(../assets/face-animation-light/tr-4.png)
+    url(../assets/face-animation-light/tr-5.png)
+    url(../assets/face-animation-light/bl-1.png)
+    url(../assets/face-animation-light/bl-2.png)
+    url(../assets/face-animation-light/bl-3.png)
+    url(../assets/face-animation-light/bl-4.png)
+    url(../assets/face-animation-light/bl-5.png)
+    url(../assets/face-animation-light/br-1.png)
+    url(../assets/face-animation-light/br-2.png)
+    url(../assets/face-animation-light/br-3.png)
+    url(../assets/face-animation-light/br-4.png)
+    url(../assets/face-animation-light/br-5.png)
+    url(../assets/face-animation-dark/blw-1.png)
+    url(../assets/face-animation-dark/blw-2.png)
+    url(../assets/face-animation-dark/blw-3.png)
+    url(../assets/face-animation-dark/blw-4.png)
+    url(../assets/face-animation-dark/blw-5.png)
+    url(../assets/face-animation-dark/trw-1.png)
+    url(../assets/face-animation-dark/trw-2.png)
+    url(../assets/face-animation-dark/trw-3.png)
+    url(../assets/face-animation-dark/trw-4.png)
+    url(../assets/face-animation-dark/trw-5.png)
+    url(../assets/face-animation-dark/blw-1.png)
+    url(../assets/face-animation-dark/blw-2.png)
+    url(../assets/face-animation-dark/blw-3.png)
+    url(../assets/face-animation-dark/blw-4.png)
+    url(../assets/face-animation-dark/blw-5.png)
+    url(../assets/face-animation-dark/brw-1.png)
+    url(../assets/face-animation-dark/brw-2.png)
+    url(../assets/face-animation-dark/brw-3.png)
+    url(../assets/face-animation-dark/brw-4.png)
+    url(../assets/face-animation-dark/brw-5.png);
+}
+
+:root {
+  /* Colors */
+  --bg: #fff;
+  --bg-alt: #000;
+  --bg-alt-2: #f0f0f0;
+  --bg-transparent: #ffffffe8;
+  --border: 0.01rem solid #000;
+  --text: #000;
+  --text-alt: #fff;
+
+  /* Face animations */
+  --tl-1: url(../assets/face-animation-light/tl-1.png);
+  --tl-2: url(../assets/face-animation-light/tl-2.png);
+  --tl-3: url(../assets/face-animation-light/tl-3.png);
+  --tl-4: url(../assets/face-animation-light/tl-4.png);
+  --tl-5: url(../assets/face-animation-light/tl-5.png);
+
+  --tr-1: url(../assets/face-animation-light/tr-1.png);
+  --tr-2: url(../assets/face-animation-light/tr-2.png);
+  --tr-3: url(../assets/face-animation-light/tr-3.png);
+  --tr-4: url(../assets/face-animation-light/tr-4.png);
+  --tr-5: url(../assets/face-animation-light/tr-5.png);
+
+  --bl-1: url(../assets/face-animation-light/bl-1.png);
+  --bl-2: url(../assets/face-animation-light/bl-2.png);
+  --bl-3: url(../assets/face-animation-light/bl-3.png);
+  --bl-4: url(../assets/face-animation-light/bl-4.png);
+  --bl-5: url(../assets/face-animation-light/bl-5.png);
+
+  --br-1: url(../assets/face-animation-light/br-1.png);
+  --br-2: url(../assets/face-animation-light/br-2.png);
+  --br-3: url(../assets/face-animation-light/br-3.png);
+  --br-4: url(../assets/face-animation-light/br-4.png);
+  --br-5: url(../assets/face-animation-light/br-5.png);
+
+  --sun: url(./assets/icons/sun.png);
+}
+
+/* DARK MODE */
+
+:root.dark-mode {
+  --bg: #000;
+  --bg-alt: #000;
+  --bg-alt-2: #000;
+  --bg-transparent: #000;
+  --border: 0.01rem solid #fff;
+  --text: #fff;
+
+  --tl-1: url(../assets/face-animation-dark/tlw-1.png);
+  --tl-2: url(../assets/face-animation-dark/tlw-2.png);
+  --tl-3: url(../assets/face-animation-dark/tlw-3.png);
+  --tl-4: url(../assets/face-animation-dark/tlw-4.png);
+  --tl-5: url(../assets/face-animation-dark/tlw-5.png);
+
+  --tr-1: url(../assets/face-animation-dark/trw-1.png);
+  --tr-2: url(../assets/face-animation-dark/trw-2.png);
+  --tr-3: url(../assets/face-animation-dark/trw-3.png);
+  --tr-4: url(../assets/face-animation-dark/trw-4.png);
+  --tr-5: url(../assets/face-animation-dark/trw-5.png);
+
+  --bl-1: url(../assets/face-animation-dark/blw-1.png);
+  --bl-2: url(../assets/face-animation-dark/blw-2.png);
+  --bl-3: url(../assets/face-animation-dark/blw-3.png);
+  --bl-4: url(../assets/face-animation-dark/blw-4.png);
+  --bl-5: url(../assets/face-animation-dark/blw-5.png);
+
+  --br-1: url(../assets/face-animation-dark/brw-1.png);
+  --br-2: url(../assets/face-animation-dark/brw-2.png);
+  --br-3: url(../assets/face-animation-dark/brw-3.png);
+  --br-4: url(../assets/face-animation-dark/brw-4.png);
+  --br-5: url(../assets/face-animation-dark/brw-5.png);
+
+  --moon: url(./assets/icons/moon.png);
+}
+
+/* COLOR MODE TOGGLE BUTTON */
+
+#color-mode {
+  background: var(--bg-alt-2);
+  height: 2.75rem;
+  width: auto;
+  min-width: 4rem;
+  padding: 0 0.5rem;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 50;
+  transform: translate(-50%, -50%);
+}
+
+#toggle-button {
+  background-image: var(--sun);
+  background-size: cover;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Login Icon Button */
+.login-icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text, #000);
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.login-icon-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.login-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+.login-icon-btn:hover svg {
+  transform: scale(1.1);
+}
+
+.login-icon-btn:active {
+  transform: scale(0.95);
+}
+
+.login-icon-btn:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.3);
+  outline-offset: 2px;
+}
+
+.dark-mode .login-icon-btn {
+  color: var(--text, #fff);
+}
+
+.dark-mode .login-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode #toggle-button {
+  background-image: var(--moon);
+}
+
+.dark-mode #color-mode {
+  justify-content: flex-end;
+}
+.dark-mode .wrapper span{
+  border: 2px solid white;
+}
+
+.dark-mode .project {
+  background: color-mix(in srgb, #fff 94%, transparent);
+  color: #000;
+  border-color: color-mix(in srgb, #000 12%, transparent);
+  box-shadow:
+    0 1px 0 color-mix(in srgb, #000 6%, transparent) inset,
+    0 12px 40px color-mix(in srgb, #000 14%, transparent);
+}
+
+.dark-mode .project__title,
+.dark-mode .project__tag {
+  color: #000;
+}
+
+.dark-mode .project__tag {
+  color: color-mix(in srgb, #000 55%, transparent);
+}
+
+.dark-mode .btn:not(.btn--project),
+.dark-mode .arrow:not(.arrow--modern) {
+  background: #fff;
+  color: #000;
+}
+
+.dark-mode .arrow--modern {
+  background: color-mix(in srgb, #fff 90%, transparent);
+  color: #000;
+  border-color: color-mix(in srgb, #000 18%, transparent);
+}
+
+.dark-mode .arrow--modern:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.dark-mode .panel-card,
+.dark-mode .contact-panel__card,
+.dark-mode .about-panel__card,
+.dark-mode .experience-panel__card {
+  background: color-mix(in srgb, #fff 94%, transparent);
+  border-color: color-mix(in srgb, #000 12%, transparent);
+}
+
+.dark-mode .panel-card__title,
+.dark-mode .contact-panel__title,
+.dark-mode .contact-panel__email,
+.dark-mode .contact-panel__link,
+.dark-mode .info-card__title,
+.dark-mode .skill-item__name {
+  color: #000;
+}
+
+.dark-mode .panel-card__kicker,
+.dark-mode .contact-panel__kicker,
+.dark-mode .contact-panel__lead,
+.dark-mode .contact-panel__label,
+.dark-mode .info-card__meta,
+.dark-mode .about-row__text,
+.dark-mode .skills-card__heading,
+.dark-mode .skill-item__level {
+  color: color-mix(in srgb, #000 60%, transparent);
+}
+
+.dark-mode .info-card {
+  background: color-mix(in srgb, #fff 98%, #000);
+  border: 1px solid color-mix(in srgb, #000 22%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, #000 8%, transparent) inset,
+    0 4px 14px color-mix(in srgb, #000 8%, transparent);
+}
+
+.dark-mode .skills-card {
+  background: color-mix(in srgb, #000 5%, #fff);
+  border-color: color-mix(in srgb, #000 10%, transparent);
+}
+
+.dark-mode .info-card__icon-wrap {
+  background: color-mix(in srgb, #000 6%, #fff);
+  border: 1px solid color-mix(in srgb, #000 14%, transparent);
+}
+
+.dark-mode .project__actions .btn--project-visit {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.dark-mode .project__actions .btn--project-visit:hover,
+.dark-mode .project__actions .btn--project-visit:focus-visible {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.dark-mode .project__actions .btn--project-alt {
+  background: transparent;
+  color: #000;
+  border-color: color-mix(in srgb, #000 32%, transparent);
+}
+
+.dark-mode .project__actions .btn--project-alt:hover,
+.dark-mode .project__actions .btn--project-alt:focus-visible {
+  background: color-mix(in srgb, #000 8%, #fff);
+  color: #000;
+  border-color: #000;
+}
+
+.dark-mode .cursor{
+      border: 1px solid #fff;
+}
+.dark-mode .cursor2{
+    background-color: #fff;
+}
+.dark-mode body{
+   background-image: linear-gradient(to right, #ffffff23 1px, transparent 1px),
+                    linear-gradient(to bottom, #ffffff23 1px, transparent 1px);
+}

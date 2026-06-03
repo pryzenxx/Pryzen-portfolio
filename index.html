@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pryzen</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.svg" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="./js/home-splash.js" defer></script>
+    <script src="./js/animation.js" defer></script>
+    <script src="./js/color-mode.js" defer></script>
+    <script src="./js/project-slideshow.js" defer></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/animation.css" />
+    <link rel="stylesheet" href="./css/color-mode.css" />
+    <link rel="stylesheet" href="./css/splash-portfolio.css" />
+    <style>
+      #hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Splash / Preloader (same structure as portfolio.html) -->
+    <div class="splash" id="splash" aria-hidden="true">
+      <div class="splash__layers" aria-hidden="true">
+        <div class="splash__layer splash__layer--dark" id="splashLayerDark"></div>
+        <div class="splash__layer splash__layer--light" id="splashLayerLight"></div>
+        <div class="splash__sweep" id="splashSweep">
+          <div class="splash__sweep-band" id="splashSweepBand"></div>
+        </div>
+      </div>
+      <div class="splash__noise" aria-hidden="true"></div>
+      <div class="splash__stage" id="splashStage">
+        <div class="splash__glow" aria-hidden="true"></div>
+        <div class="splash__lines" aria-hidden="true">
+          <span class="splash__line splash__line--h"></span>
+          <span class="splash__line splash__line--v"></span>
+        </div>
+        <div class="splash__inner">
+          <p class="splash__tagline">UI/UX · Branding · Web · Designer · Animation · Illustrator · Artist</p>
+          <div class="splash__brand splash__brand--type" aria-label="Pryzen loading">
+            <span class="splash__type-row">
+              <span class="splash__type" id="splashType"></span><span class="splash__cursor" id="splashCursor"></span>
+            </span>
+          </div>
+        </div>
+        <div class="splash__pct-wrap" aria-live="polite" aria-label="Load progress">
+          <div class="splash__pct-block">
+            <div class="splash__pct-row">
+              <span class="splash__pct" id="splashPct">0</span>
+              <span class="splash__pct-suffix">%</span>
+            </div>
+            <span class="splash__pct-word">Loading</span>
+          </div>
+        </div>
+      </div>
+      <div class="splash__curtain" id="splashCurtain" aria-hidden="true"></div>
+    </div>
+
+    <div class="bg-ambient" aria-hidden="true">
+      <div class="wrapper">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+<!-- ----------------------------------------------------------------------------- -->
+    <div id="hero">
+      <h5 class="hero__kicker">Hello, I'm</h5>
+      <h1 class="hero__title">Pryzen.</h1>
+      <p class="hero__roles" aria-label="Designer, UIUX, Illustrator, Video Editor">
+        <span class="hero__role">Designer</span>
+        <span class="hero__role">UIUX</span>
+        <span class="hero__role">Illustrator</span>
+        <span class="hero__role">Video Editor</span>
+      </p>
+      <div id="hero__animation">
+        
+       <div id="hero__animation__img"></div>
+      </div>
+    </div>
+    <nav id="grid">
+      <div id="grid__tl">
+        <div id="grid__tl__btn">About</div>
+        <div id="grid__tl__content" class="about-panel">
+          <div class="panel-card about-panel__card">
+            <header class="panel-card__header">
+              <p class="panel-card__kicker">About</p>
+              <h2 class="panel-card__title">Designer &amp; developer</h2>
+            </header>
+            <div class="about-panel__rows">
+              <section class="about-row">
+                <article class="info-card">
+                  <div class="info-card__icon-wrap">
+                    <img
+                      src="./assets/icons/experience.png"
+                      alt=""
+                      class="icon"
+                      width="32"
+                      height="32"
+                    />
+                  </div>
+                  <div class="info-card__body">
+                    <h3 class="info-card__title">Experience</h3>
+                    <p class="info-card__meta">
+                      2 years graphic design · 3 months development · 2 years as artist
+                    </p>
+                  </div>
+                </article>
+                <p class="about-row__text">
+                  I’m a freelance designer and developer specializing in visually compelling,
+                  user-focused digital experiences — branding, mockups, UI/UX, and web design
+                  with strategic, impactful results.
+                </p>
+              </section>
+              <section class="about-row">
+                <article class="info-card">
+                  <div class="info-card__icon-wrap">
+                    <img
+                      src="./assets/icons/education.png"
+                      alt=""
+                      class="icon"
+                      width="32"
+                      height="32"
+                    />
+                  </div>
+                  <div class="info-card__body">
+                    <h3 class="info-card__title">Education</h3>
+                    <p class="info-card__meta">B.Sc. Information Technology</p>
+                  </div>
+                </article>
+                <p class="about-row__text">
+                  Northern Mindanao Colleges, Inc.
+                </p>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="grid__tr">
+        <div id="grid__tr__btn">Experience</div>
+        <div id="grid__tr__content" class="experience-panel">
+          <div class="panel-card experience-panel__card">
+            <header class="panel-card__header">
+              <p class="panel-card__kicker">Skills</p>
+              <h2 class="panel-card__title">What I work with</h2>
+            </header>
+            <div class="skills-grid">
+              <article class="skills-card">
+                <h3 class="skills-card__heading">Design &amp; creative</h3>
+                <ul class="skills-list">
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">Photoshop</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">Figma</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">Animate</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">Premiere Pro</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">Ibis Paint X</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">CapCut</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                </ul>
+              </article>
+              <article class="skills-card">
+                <h3 class="skills-card__heading">Development</h3>
+                <ul class="skills-list">
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">Vite React</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">Node.js</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">Tailwind CSS</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">MongoDB</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">HTML / CSS / JS</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                  <li class="skill-item">
+                    <img src="./assets/icons/checkmark.png" alt="" class="skill-item__icon icon" width="24" height="24" />
+                    <div class="skill-item__text">
+                      <span class="skill-item__name">GitHub</span>
+                      <span class="skill-item__level">Experienced</span>
+                    </div>
+                  </li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="grid__bl">
+        <div id="grid__bl__btn">Works</div>
+        <div id="grid__bl__content" class="works-panel">
+          <div id="grid__bl__content__projects" class="works-panel__carousel">
+
+            <article class="project p-1">
+              <a
+                class="project__img-link"
+                href="https://pryzen.artstation.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Art & Illustrations — open ArtStation"
+              >
+                <div class="project__media">
+                  <img
+                    class="project__img project-1"
+                    src="assets/portfolio-projects/Logo1.png"
+                    alt="Art & Illustrations"
+                  />
+                </div>
+              </a>
+              <div class="project__body">
+                <span class="project__tag">01 — Portfolio</span>
+                <h2 class="project__title">Art & Illustrations</h2>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--project btn--project-visit"
+                    href="https://pryzen.artstation.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Art & Illustrations on ArtStation"
+                  >
+                    ArtStation <span class="arrow-icon" aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn btn--project btn--project-alt"
+                    href="portfolio.html#works"
+                    aria-label="View full portfolio — Works section"
+                  >
+                    Portfolio <span class="arrow-icon" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project p-2">
+              <a
+                class="project__img-link"
+                href="https://www.behance.net/pryzen"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Design & UIUX — open Behance"
+              >
+                <div class="project__media">
+                  <img
+                    class="project__img project-2"
+                    src="assets/portfolio-projects/Logo2.png"
+                    alt="Design & UIUX"
+                  />
+                </div>
+              </a>
+              <div class="project__body">
+                <span class="project__tag">02 — Portfolio</span>
+                <h2 class="project__title">Design & UIUX</h2>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--project btn--project-visit"
+                    href="https://www.behance.net/pryzen"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Design & UIUX on Behance"
+                  >
+                    Behance <span class="arrow-icon" aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn btn--project btn--project-alt"
+                    href="portfolio.html#works"
+                    aria-label="View full portfolio — Works section"
+                  >
+                    Portfolio <span class="arrow-icon" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project p-3">
+              <a
+                class="project__img-link"
+                href="https://www.youtube.com/@pryzenx"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Video & Motion — open YouTube"
+              >
+                <div class="project__media">
+                  <img
+                    class="project__img project-3"
+                    src="assets/portfolio-projects/Logo3.png"
+                    alt="Video & Motion"
+                  />
+                </div>
+              </a>
+              <div class="project__body">
+                <span class="project__tag">03 — Portfolio</span>
+                <h2 class="project__title">Video & Animation</h2>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--project btn--project-visit"
+                    href="https://www.youtube.com/@pryzenx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Video & Animation on YouTube"
+                  >
+                    YouTube <span class="arrow-icon" aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn btn--project btn--project-alt"
+                    href="portfolio.html#works"
+                    aria-label="View full portfolio — Works section"
+                  >
+                    Portfolio <span class="arrow-icon" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project p-4">
+              <a
+                class="project__img-link"
+                href="https://github.com/pryzenxx"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Web & Development — open GitHub"
+              >
+                <div class="project__media">
+                  <img
+                    class="project__img project-4"
+                    src="assets/portfolio-projects/Logo4.png"
+                    alt="Web & Development"
+                  />
+                </div>
+              </a>
+              <div class="project__body">
+                <span class="project__tag">04 — Portfolio</span>
+                <h2 class="project__title">Web & Development</h2>
+                <div class="project__actions">
+                  <a
+                    class="btn btn--project btn--project-visit"
+                    href="https://github.com/pryzenxx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Web & Development on GitHub"
+                  >
+                    GitHub <span class="arrow-icon" aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn btn--project btn--project-alt"
+                    href="portfolio.html#works"
+                    aria-label="View full portfolio — Works section"
+                  >
+                    Portfolio <span class="arrow-icon" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <div class="works-panel__nav" aria-label="Project navigation">
+              <button type="button" class="arrow arrow--modern" onclick="navigateProject(-1)" aria-label="Previous project">
+                <span aria-hidden="true">←</span>
+              </button>
+              <button type="button" class="arrow arrow--modern" onclick="navigateProject(1)" aria-label="Next project">
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="grid__br">
+        <div id="grid__br__btn">Contact</div>
+        <div id="grid__br__content" class="contact-panel">
+          <div class="contact-panel__card">
+            <p class="contact-panel__kicker">Get in touch</p>
+            <h2 class="contact-panel__title">Let's collaborate</h2>
+            <p class="contact-panel__lead">
+              Open for commissions, freelance projects, and long-term partnerships.
+            </p>
+            <a
+              class="contact-panel__email"
+              href="mailto:princedevilleresx@gmail.com?subject=Inquiry&amp;body=Hello%20there,"
+            >
+              princedevilleresx@gmail.com
+            </a>
+            <p class="contact-panel__label" id="home-contact-label">Elsewhere</p>
+            <nav class="contact-panel__links" aria-labelledby="home-contact-label">
+              <a
+                class="contact-panel__link"
+                href="https://www.linkedin.com/in/pryzen/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn <span class="contact-panel__arrow" aria-hidden="true">↗</span>
+              </a>
+              <a
+                class="contact-panel__link"
+                href="https://discord.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Username: _pryzenx"
+              >
+                Discord <span class="contact-panel__arrow" aria-hidden="true">↗</span>
+              </a>
+              <a
+                class="contact-panel__link"
+                href="https://www.onlinejobs.ph/jobseekers/info/5052173"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                OnlineJobs.ph <span class="contact-panel__arrow" aria-hidden="true">↗</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div id="color-mode">
+      <div id="toggle-button" class="icon"></div>
+      </div>
+
+<!-- Cursor Pointer-->
+  <div class="cursor"></div>
+  <div class="cursor2"></div>
+
+    <link rel="stylesheet" href="./css/admin.css" />
+  </body>
+</html>

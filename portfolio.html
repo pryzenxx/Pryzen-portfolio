@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Pryzen — Designer, Artist, Illustrator, UI/UX, Web & Video Editor" />
+  <title>Pryzen — Portfolio</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/portfolio.css" />
+</head>
+<body>
+  <div class="pointer" id="pointer" aria-hidden="true">
+    <div class="pointer__halo" id="pointerHalo" aria-hidden="true"></div>
+    <div class="pointer__ring" id="pointerRing" aria-hidden="true">
+      <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
+        <defs>
+          <linearGradient id="pointerRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.45" />
+            <stop offset="52%" stop-color="var(--accent-2)" stop-opacity="1" />
+            <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.5" />
+          </linearGradient>
+        </defs>
+        <circle
+          class="pointer__ring-path pointer__ring-path--track"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          stroke-linecap="round"
+          opacity="0.2"
+        />
+        <circle
+          class="pointer__ring-path pointer__ring-path--arc"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke="url(#pointerRingGrad)"
+          stroke-width="1.35"
+          stroke-linecap="round"
+        />
+      </svg>
+    </div>
+    <span class="pointer__dot" aria-hidden="true"></span>
+  </div>
+  <!-- Splash / Preloader -->
+  <div class="splash" id="splash" aria-hidden="true">
+    <div class="splash__layers" aria-hidden="true">
+      <div class="splash__layer splash__layer--dark" id="splashLayerDark"></div>
+      <div class="splash__layer splash__layer--light" id="splashLayerLight"></div>
+      <div class="splash__sweep" id="splashSweep">
+        <div class="splash__sweep-band" id="splashSweepBand"></div>
+      </div>
+    </div>
+    <div class="splash__noise" aria-hidden="true"></div>
+    <div class="splash__stage" id="splashStage">
+      <div class="splash__glow" aria-hidden="true"></div>
+      <div class="splash__lines" aria-hidden="true">
+        <span class="splash__line splash__line--h"></span>
+        <span class="splash__line splash__line--v"></span>
+      </div>
+      <div class="splash__inner">
+        <p class="splash__tagline">UI/UX · Graphic Designer · Illustrator · Video Editor · Developer</p>
+        <div class="splash__brand splash__brand--type" aria-label="Pryzen loading">
+          <span class="splash__type-row">
+            <span class="splash__type" id="splashType"></span><span class="splash__cursor" id="splashCursor"></span>
+          </span>
+        </div>
+      </div>
+      <div class="splash__pct-wrap" aria-live="polite" aria-label="Load progress">
+        <div class="splash__pct-block">
+          <div class="splash__pct-row">
+            <span class="splash__pct" id="splashPct">0</span>
+            <span class="splash__pct-suffix">%</span>
+          </div>
+          <span class="splash__pct-word">Loading</span>
+        </div>
+      </div>
+    </div>
+    <div class="splash__curtain" id="splashCurtain" aria-hidden="true"></div>
+  </div>
+
+  <!-- Mobile: top bar + slide menu -->
+  <header class="mobile-topbar" id="mobileTopbar">
+    <button
+      type="button"
+      class="mobile-menu-btn"
+      id="mobileMenuBtn"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobileDrawer"
+    >
+      <span class="mobile-menu-btn__inner" aria-hidden="true">
+        <span class="mobile-menu-btn__bar"></span>
+        <span class="mobile-menu-btn__bar"></span>
+        <span class="mobile-menu-btn__bar"></span>
+      </span>
+    </button>
+    <button type="button" class="theme-toggle theme-toggle--toolbar" aria-label="Toggle dark mode">
+      <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </span>
+      <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span>
+    </button>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer__backdrop" id="mobileDrawerBackdrop" tabindex="-1"></div>
+    <div class="mobile-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="mobileDrawerTitle">
+      <div class="mobile-drawer__head">
+        <span class="mobile-drawer__title" id="mobileDrawerTitle">Menu</span>
+        <button type="button" class="mobile-drawer__close" id="mobileDrawerClose" aria-label="Close menu">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <nav class="mobile-drawer__nav" aria-label="Section navigation">
+        <a href="#hero" class="mobile-drawer__link is-active" data-section="hero">Home</a>
+        <a href="#about" class="mobile-drawer__link" data-section="about">About</a>
+        <a href="#works" class="mobile-drawer__link" data-section="works">Works</a>
+        <a href="#certificates" class="mobile-drawer__link" data-section="certificates">Certificates</a>
+        <a href="#resume" class="mobile-drawer__link" data-section="resume">Resume</a>
+        <a href="#contact" class="mobile-drawer__link" data-section="contact">Contact</a>
+      </nav>
+      <div class="mobile-drawer__social">
+        <a href="https://www.upwork.com/freelancers/~01b6e41eb017288eee?mp_source=share" target="_blank" rel="noopener noreferrer" class="mobile-drawer__social-link">Upwork</a>
+        <a href="https://www.linkedin.com/in/pryzen/" target="_blank" rel="noopener noreferrer" class="mobile-drawer__social-link">LinkedIn</a>
+        <a href="https://pin.it/1itgkdLfh" target="_blank" rel="noopener noreferrer" class="mobile-drawer__social-link">Pinterest</a>
+        <a href="https://pryzenx.gumroad.com/" target="_blank" rel="noopener noreferrer" class="mobile-drawer__social-link">Gumroad</a>
+        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="mobile-drawer__social-link" title="Username: _pryzenx">Discord</a>
+        <a href="https://www.onlinejobs.ph/jobseekers/info/5052173" target="_blank" rel="noopener noreferrer" class="mobile-drawer__social-link">OnlineJobs.ph</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left vertical nav: sections -->
+  <nav class="nav nav--left" aria-label="Section navigation">
+    <div class="nav__dots">
+      <a href="#hero" class="nav__link is-active" data-section="hero"><span class="nav__dot"></span><span class="nav__text">Home</span></a>
+      <a href="#about" class="nav__link" data-section="about"><span class="nav__dot"></span><span class="nav__text">About</span></a>
+      <a href="#works" class="nav__link" data-section="works"><span class="nav__dot"></span><span class="nav__text">Works</span></a>
+      <a href="#certificates" class="nav__link" data-section="certificates"><span class="nav__dot"></span><span class="nav__text">Certificates</span></a>
+      <a href="#resume" class="nav__link" data-section="resume"><span class="nav__dot"></span><span class="nav__text">Resume</span></a>
+      <a href="#contact" class="nav__link" data-section="contact"><span class="nav__dot"></span><span class="nav__text">Contact</span></a>
+    </div>
+  </nav>
+
+  <!-- Right vertical: theme + social -->
+  <aside class="nav nav--right" aria-label="Theme and social">
+    <button type="button" class="theme-toggle theme-toggle--desktop" aria-label="Toggle dark mode">
+      <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </span>
+      <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span>
+    </button>
+    <div class="nav__social">
+      <a href="https://www.upwork.com/freelancers/~01b6e41eb017288eee?mp_source=share" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Upwork">Upwork</a>
+      <a href="https://www.linkedin.com/in/pryzen/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+      <a href="https://pin.it/1itgkdLfh" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Pinterest">Pinterest</a>
+      <a href="https://pryzenx.gumroad.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Gumroad">Gumroad</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+    <!-- Hero -->
+    <section class="section hero" id="hero">
+      <div class="hero__media-bg" aria-hidden="true"></div>
+      <figure class="hero__visual reveal">
+        <div class="hero__portrait" tabindex="0" role="img" aria-label="Pryzen — hover to view alternate portrait">
+          <img
+            src="assets/hero/hero-image-1.png"
+            alt="Pryzen portrait"
+            class="hero__portrait-img hero__portrait-img--default"
+            width="640"
+            height="640"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <img
+            src="assets/hero/hero-image-2.png"
+            alt=""
+            class="hero__portrait-img hero__portrait-img--hover"
+            width="640"
+            height="640"
+            decoding="async"
+            aria-hidden="true"
+          />
+        </div>
+      </figure>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="hero__intro reveal">
+            <a href="index.html" class="hero__back-link" aria-label="Back to home">
+              <svg class="hero__back-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </a>
+            <p class="hero__kicker">UIUX · Developer · Illustrator</p>
+          </div>
+          <h1 class="hero__title">
+            <span class="hero__name reveal">
+              <span class="hero__name-base">PRYZ</span><span class="hero__name-en">EN</span>
+            </span>
+          </h1>
+          <p class="hero__roles reveal">
+            <span>Graphic Designer</span>
+            <span class="hero__sep">|</span>
+            <span>Videl Editor</span>
+          </p>
+          <p class="hero__lead reveal">Crafting visual stories, interfaces, and motion that feel intentional.</p>
+          <div class="hero__cta reveal">
+            <a href="#works" class="btn btn--primary">View work</a>
+            <a href="#contact" class="btn btn--ghost">Let’s talk</a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html" class="hero__circle-link" aria-label="Back to home">
+        <div class="hero__circle-text" aria-hidden="true">
+          <svg class="hero__circle-svg" viewBox="0 0 220 220" role="img" aria-hidden="true">
+            <defs>
+              <path id="heroCirclePath" d="M 110,110 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" />
+            </defs>
+            <circle class="hero__circle-ring" cx="110" cy="110" r="78" fill="none" />
+            <text class="hero__circle-textpath">
+              <textPath href="#heroCirclePath" startOffset="0%">
+                HOVER ME • PRYZEN • UI/UX • BRANDING • WEB • MOTION • ILLUSTRATION •
+              </textPath>
+            </text>
+          </svg>
+          <span class="hero__circle-hub">
+            <span class="hero__circle-hub__text hero__circle-hub__text--idle" aria-hidden="true">Hover me</span>
+            <span class="hero__circle-hub__text hero__circle-hub__text--hover" aria-hidden="true">Back home</span>
+          </span>
+        </div>
+      </a>
+      <div class="hero__marquee" aria-hidden="true">
+        <div class="hero__marquee-mask">
+          <div class="hero__marquee-track">
+            <div class="hero__marquee-group">
+              <span>PRYZEN</span><span class="hero__marquee-dot">·</span>
+              <span>UI/UX</span><span class="hero__marquee-dot">·</span>
+              <span>Branding</span><span class="hero__marquee-dot">·</span>
+              <span>Web</span><span class="hero__marquee-dot">·</span>
+              <span>Motion</span><span class="hero__marquee-dot">·</span>
+              <span>Illustration</span><span class="hero__marquee-dot">·</span>
+              <span>Video</span><span class="hero__marquee-dot">·</span>
+              <span>Designer</span><span class="hero__marquee-dot">·</span>
+            </div>
+            <div class="hero__marquee-group">
+              <span>PRYZEN</span><span class="hero__marquee-dot">·</span>
+              <span>UI/UX</span><span class="hero__marquee-dot">·</span>
+              <span>Branding</span><span class="hero__marquee-dot">·</span>
+              <span>Web</span><span class="hero__marquee-dot">·</span>
+              <span>Motion</span><span class="hero__marquee-dot">·</span>
+              <span>Illustration</span><span class="hero__marquee-dot">·</span>
+              <span>Video</span><span class="hero__marquee-dot">·</span>
+              <span>Designer</span><span class="hero__marquee-dot">·</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll">
+        <span>Scroll</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">01</span>
+          <h2 class="section-title">About</h2>
+        </header>
+        <div class="about__grid">
+          <div class="about__copy">
+            <p class="about__text reveal">
+              I’m a freelance designer and developer specializing in creating visually compelling and user-focused digital experiences. My core strengths lie in branding, mockup design, UI/UX, and web design, where I combine creativity with strategic thinking to deliver clean, functional, and impactful results.<br /><br />
+              <span class="about__text--serif">As an artist, I also produce original illustrations that bring personality and uniqueness to every project. Currently, I’m expanding my capabilities as a developer, integrating design and code to build seamless, end-to-end solutions. I work with clients ranging from individuals to local businesses, helping turn ideas into well-crafted visual and digital products.</span>
+            </p>
+            <ul class="about__tags reveal">
+              <li>Brand &amp; identity</li>
+              <li>UI/UX</li>
+              <li>Animation &amp; video</li>
+              <li>Illustration</li>
+            </ul>
+          </div>
+          <div class="about__stats">
+            <div class="stat reveal"><span class="stat__n" data-count="2">0</span><span class="stat__l">Years of experience</span></div>
+            <div class="stat reveal"><span class="stat__n" data-count="150">0</span><span class="stat__l">Projects shipped</span></div>
+            <div class="stat reveal"><span class="stat__n" data-count="2">0</span><span class="stat__l">Industries</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="section-ticker" aria-hidden="true">
+        <span class="section-ticker__line"></span>
+        <div class="section-ticker__mask">
+          <div class="section-ticker__track">
+            <div class="section-ticker__col">
+              <span>About</span><span>About</span><span>About</span><span>About</span><span>About</span><span>About</span>
+              <span>About</span><span>About</span><span>About</span><span>About</span><span>About</span><span>About</span>
+            </div>
+            <div class="section-ticker__col">
+              <span>About</span><span>About</span><span>About</span><span>About</span><span>About</span><span>About</span>
+              <span>About</span><span>About</span><span>About</span><span>About</span><span>About</span><span>About</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works -->
+    <section class="section works" id="works">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">02</span>
+          <h2 class="section-title">Works</h2>
+        </header>
+        <div class="works__list">
+          <article class="work-card">
+            <div class="work-card__meta">
+              <span>ArtStation</span>
+              <a href="https://pryzen.artstation.com/" class="work-card__visit" target="_blank" rel="noopener noreferrer" aria-label="Open ArtStation portfolio">
+                <span class="work-card__visit__stack">
+                  <span class="work-card__visit__text work-card__visit__text--default">Visit</span>
+                  <span class="work-card__visit__text work-card__visit__text--hover">View project</span>
+                </span>
+              </a>
+            </div>
+            <h3 class="work-card__title">Art & Illustration</h3>
+            <span class="work-card__arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="work-card">
+            <div class="work-card__meta">
+              <span>Behance</span>
+              <a href="https://www.behance.net/pryzen" class="work-card__visit" target="_blank" rel="noopener noreferrer" aria-label="Open Behance portfolio">
+                <span class="work-card__visit__stack">
+                  <span class="work-card__visit__text work-card__visit__text--default">Visit</span>
+                  <span class="work-card__visit__text work-card__visit__text--hover">View project</span>
+                </span>
+              </a>
+            </div>
+            <h3 class="work-card__title">Graphic design &amp; UI/UX</h3>
+            <span class="work-card__arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="work-card">
+            <div class="work-card__meta">
+              <span>YouTube</span>
+              <a href="https://www.youtube.com/@pryzenx" class="work-card__visit" target="_blank" rel="noopener noreferrer" aria-label="Open YouTube channel">
+                <span class="work-card__visit__stack">
+                  <span class="work-card__visit__text work-card__visit__text--default">Visit</span>
+                  <span class="work-card__visit__text work-card__visit__text--hover">View project</span>
+                </span>
+              </a>
+            </div>
+            <h3 class="work-card__title">Video & Animation</h3>
+            <span class="work-card__arrow" aria-hidden="true">↗</span>
+          </article>
+          <article class="work-card">
+            <div class="work-card__meta">
+              <span>GitHub</span>
+              <a href="https://github.com/pryzenxx" class="work-card__visit" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub profile">
+                <span class="work-card__visit__stack">
+                  <span class="work-card__visit__text work-card__visit__text--default">Visit</span>
+                  <span class="work-card__visit__text work-card__visit__text--hover">View project</span>
+                </span>
+              </a>
+            </div>
+            <h3 class="work-card__title">Web & Development</h3>
+            <span class="work-card__arrow" aria-hidden="true">↗</span>
+          </article>
+        </div>
+      </div>
+      <div class="section-ticker" aria-hidden="true">
+        <span class="section-ticker__line"></span>
+        <div class="section-ticker__mask">
+          <div class="section-ticker__track">
+            <div class="section-ticker__col">
+              <span>Works</span><span>Works</span><span>Works</span><span>Works</span><span>Works</span><span>Works</span>
+              <span>Works</span><span>Works</span><span>Works</span><span>Works</span><span>Works</span><span>Works</span>
+            </div>
+            <div class="section-ticker__col">
+              <span>Works</span><span>Works</span><span>Works</span><span>Works</span><span>Works</span><span>Works</span>
+              <span>Works</span><span>Works</span><span>Works</span><span>Works</span><span>Works</span><span>Works</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates & Achievements -->
+    <section class="section certificates" id="certificates">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">03</span>
+          <h2 class="section-title">Certificates</h2>
+        </header>
+        <p class="certificates__intro reveal">
+          Credentials and milestones across design, development, and creative practice. Select a card to view the full certificate.
+        </p>
+        <div class="certificates__grid" role="list">
+          <article
+            class="cert-card reveal"
+            role="listitem"
+            tabindex="0"
+            data-cert-index="0"
+            data-cert-title="Certificate of Recognition"
+            data-cert-issuer="Northen Mindanao Colleges Inc."
+            data-cert-date="2026"
+            data-cert-image="assets/certificates/1.png"
+            data-cert-alt="Certificate of Recognition"
+          >
+            <div class="cert-card__visual">
+              <img src="assets/certificates/1.png" alt="" width="400" height="280" loading="lazy" />
+              <span class="cert-card__badge" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-3.5 2 .9-4-3.2-2.8 4.2-.3L12 6l1.6 3.9 4.2.3-3.2 2.8.9 4z"/></svg>
+              </span>
+            </div>
+            <div class="cert-card__body">
+              <span class="cert-card__tag">Intership</span>
+              <h3 class="cert-card__title">Certificate of Recognition </h3>
+              <p class="cert-card__meta">Northen Mindanao Colleges Inc. · 2026</p>
+              <span class="cert-card__action">View certificate <span aria-hidden="true">↗</span></span>
+            </div>
+          </article>
+
+          <article
+            class="cert-card reveal"
+            role="listitem"
+            tabindex="0"
+            data-cert-index="1"
+            data-cert-title="Certificate of Appreciation"
+            data-cert-issuer="NORMI Publication"
+            data-cert-date="2026"
+            data-cert-image="assets/certificates/2.png"
+            data-cert-alt="Trainer Certificate of Appreciation"
+          >
+            <div class="cert-card__visual">
+              <img src="assets/certificates/2.png" alt="" width="400" height="280" loading="lazy" />
+              <span class="cert-card__badge" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15l-3.5 2 .9-4-3.2-2.8 4.2-.3L12 6l1.6 3.9 4.2.3-3.2 2.8.9 4z"/></svg>
+              </span>
+            </div>
+            <div class="cert-card__body">
+              <span class="cert-card__tag">Trainer</span>
+              <h3 class="cert-card__title">Certificate of Appreciation</h3>
+              <p class="cert-card__meta">NORMI Publication · 2026</p>
+              <span class="cert-card__action">View certificate <span aria-hidden="true">↗</span></span>
+            </div>
+          </article>
+
+      
+        </div>
+      </div>
+      <div class="section-ticker" aria-hidden="true">
+        <span class="section-ticker__line"></span>
+        <div class="section-ticker__mask">
+          <div class="section-ticker__track">
+            <div class="section-ticker__col">
+              <span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span>
+              <span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span>
+            </div>
+            <div class="section-ticker__col">
+              <span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span>
+              <span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span><span>Certificates</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificate lightbox -->
+    <div class="cert-modal" id="certModal" hidden>
+      <div class="cert-modal__backdrop" aria-hidden="true"></div>
+      <div
+        class="cert-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="certModalTitle"
+        aria-describedby="certModalDesc"
+      >
+        <header class="cert-modal__header">
+          <div class="cert-modal__meta-wrap">
+            <h3 class="cert-modal__title" id="certModalTitle"></h3>
+            <p class="cert-modal__desc" id="certModalDesc">
+              <span class="cert-modal__issuer"></span>
+              <span class="cert-modal__sep" aria-hidden="true">·</span>
+              <span class="cert-modal__date"></span>
+            </p>
+          </div>
+          <span class="cert-modal__counter" hidden></span>
+          <button type="button" class="cert-modal__close" aria-label="Close certificate viewer">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </header>
+        <div class="cert-modal__stage">
+          <button type="button" class="cert-modal__nav cert-modal__prev" aria-label="Previous certificate">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <figure class="cert-modal__figure">
+            <img class="cert-modal__image" src="" alt="" />
+          </figure>
+          <button type="button" class="cert-modal__nav cert-modal__next" aria-label="Next certificate">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resume -->
+    <section class="section resume" id="resume">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">04</span>
+          <h2 class="section-title">Resume</h2>
+        </header>
+        <div class="resume__layout">
+          <div class="resume__col resume__col--main">
+            <article class="resume-card resume-card--hero reveal">
+              <div class="resume-card__top">
+                <div>
+                  <p class="resume__eyebrow">Resume</p>
+                  <h3 class="resume__name">Prince Angelo B. Devilleres</h3>
+                  <p class="resume__location">Balangbalang, RTR, Agusan del Norte, Philippines</p>
+                </div>
+              </div>
+              <div class="resume__rule" aria-hidden="true"></div>
+            </article>
+
+            <details class="resume-card resume-card--dropdown reveal">
+              <summary class="resume-card__summary">
+                <h4 class="resume__section-title">Professional summary</h4>
+                <span class="resume-card__chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="resume-card__body">
+                <div class="resume-card__body-inner">
+                  <p class="resume__prose">
+                    Versatile and detail-oriented creative professional with hands-on experience in freelance graphic design, UI/UX design, branding, illustration, and full-stack web development. Skilled in delivering visually compelling designs and functional digital solutions for local clients and student-based projects. Currently developing a Barangay Management System with SMS integration, demonstrating strong technical and problem-solving capabilities. Adept at combining creativity with technical expertise across design and development workflows.
+                  </p>
+                </div>
+              </div>
+            </details>
+
+            <details class="resume-card resume-card--dropdown reveal">
+              <summary class="resume-card__summary">
+                <h4 class="resume__section-title">Education</h4>
+                <span class="resume-card__chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="resume-card__body">
+                <div class="resume-card__body-inner">
+                  <p class="resume__degree">Bachelor of Science in Information Technology (BSIT)</p>
+                  <p class="resume__prose resume__prose--tight">Northern Mindanao Colleges, Inc.<br />Philippines</p>
+                </div>
+              </div>
+            </details>
+
+            <details class="resume-card resume-card--dropdown reveal">
+              <summary class="resume-card__summary">
+                <h4 class="resume__section-title">Additional information</h4>
+                <span class="resume-card__chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="resume-card__body">
+                <div class="resume-card__body-inner">
+                  <ul class="resume__bullets">
+                    <li>Experience working with local clients and student-based projects</li>
+                    <li>Strong adaptability across creative and technical disciplines</li>
+                    <li>Passionate about continuous learning in design and development</li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+
+            <details class="resume-card resume-card--dropdown reveal">
+              <summary class="resume-card__summary">
+                <h4 class="resume__section-title">Current project</h4>
+                <span class="resume-card__chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="resume-card__body">
+                <div class="resume-card__body-inner">
+                  <p class="resume__project-title">Barangay Management System with SMS (BMS)</p>
+                  <ul class="resume__bullets resume__bullets--job">
+                    <li>Developing a system for local barangay operations to streamline records and communication</li>
+                    <li>Implementing SMS integration for notifications and updates</li>
+                    <li>Designing both UI/UX and backend structure for efficiency and usability</li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+
+            <details class="resume-card resume-card--dropdown reveal">
+              <summary class="resume-card__summary">
+                <h4 class="resume__section-title">Projects &amp; portfolio</h4>
+                <span class="resume-card__chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="resume-card__body">
+                <div class="resume-card__body-inner">
+                  <ul class="resume__bullets">
+                    <li>Website designs and web applications (React-based)</li>
+                    <li>Branding &amp; graphic design projects</li>
+                    <li>UI/UX case studies</li>
+                    <li>Video editing &amp; motion projects</li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div class="resume__col resume__col--side">
+            <details class="resume-card resume-card--dropdown reveal">
+              <summary class="resume-card__summary">
+                <h4 class="resume__section-title">Core skills</h4>
+                <span class="resume-card__chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="resume-card__body">
+                <div class="resume-card__body-inner">
+                  <ul class="resume__bullets">
+                    <li>Graphic design &amp; branding</li>
+                    <li>UI/UX design &amp; prototyping</li>
+                    <li>Illustration &amp; layout design</li>
+                    <li>Mockup &amp; visual presentation</li>
+                    <li>Video editing (cinematic &amp; motion graphics)</li>
+                    <li>Full-stack web development</li>
+                    <li>Website design &amp; deployment</li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+
+            <details class="resume-card resume-card--dropdown reveal">
+              <summary class="resume-card__summary">
+                <h4 class="resume__section-title">Technical skills</h4>
+                <span class="resume-card__chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="resume-card__body">
+                <div class="resume-card__body-inner">
+                  <div class="resume__skill-block">
+                    <p class="resume__skill-label">Design &amp; creative tools</p>
+                    <ul class="resume__chips">
+                      <li>Adobe Photoshop</li>
+                      <li>Adobe Premiere Pro</li>
+                      <li>Adobe Animate</li>
+                      <li>Ibis Paint</li>
+                      <li>Figma</li>
+                      <li>CapCut</li>
+                    </ul>
+                  </div>
+                  <div class="resume__skill-block">
+                    <p class="resume__skill-label">Web development</p>
+                    <ul class="resume__chips">
+                      <li>React.js</li>
+                      <li>HTML</li>
+                      <li>CSS</li>
+                      <li>JavaScript</li>
+                      <li>Tailwind CSS</li>
+                    </ul>
+                  </div>
+                  <div class="resume__skill-block">
+                    <p class="resume__skill-label">Backend &amp; tools</p>
+                    <ul class="resume__chips">
+                      <li>MongoDB</li>
+                      <li>GitHub</li>
+                      <li>Vercel</li>
+                      <li>Render</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="resume-card resume-card--dropdown reveal">
+              <summary class="resume-card__summary">
+                <h4 class="resume__section-title">Professional experience</h4>
+                <span class="resume-card__chevron" aria-hidden="true"></span>
+              </summary>
+              <div class="resume-card__body">
+                <div class="resume-card__body-inner">
+                  <div class="resume__job">
+                    <div class="resume__job-head">
+                      <p class="resume__job-title">Freelance graphic designer &amp; UI/UX designer</p>
+                      <p class="resume__job-meta">Self-employed · Philippines</p>
+                      <p class="resume__job-date">Freelance</p>
+                    </div>
+                    <ul class="resume__bullets resume__bullets--job">
+                      <li>Designed branding materials, social media graphics, and marketing visuals for local clients and students</li>
+                      <li>Created UI/UX designs and interactive prototypes using Figma</li>
+                      <li>Produced mockups and layout designs for presentations and digital products</li>
+                      <li>Delivered illustration and creative assets tailored to client requirements</li>
+                    </ul>
+                  </div>
+
+                  <div class="resume__job">
+                    <div class="resume__job-head">
+                      <p class="resume__job-title">Freelance video editor &amp; motion designer</p>
+                      <p class="resume__job-meta">Self-employed · Philippines</p>
+                    </div>
+                    <ul class="resume__bullets resume__bullets--job">
+                      <li>Edited cinematic videos and motion graphics using Adobe Premiere Pro and CapCut</li>
+                      <li>Enhanced storytelling through transitions, effects, and visual composition</li>
+                    </ul>
+                  </div>
+
+                  <div class="resume__job">
+                    <div class="resume__job-head">
+                      <p class="resume__job-title">Full-stack developer</p>
+                      <p class="resume__job-meta">Project-based</p>
+                    </div>
+                    <ul class="resume__bullets resume__bullets--job">
+                      <li>Designed and developed responsive websites using React.js and modern frontend technologies</li>
+                      <li>Built and deployed web applications using Vercel and Render</li>
+                      <li>Managed version control and collaboration using GitHub</li>
+                    </ul>
+                  </div>
+
+                  <div class="resume__job">
+                    <div class="resume__job-head">
+                      <p class="resume__job-title">Layout Artist Intern</p>
+                      <p class="resume__job-meta">Northern Mindanao Colleges, Inc.</p>
+                    </div>
+                    <ul class="resume__bullets resume__bullets--job">
+                      <li>Created layout designs for school publications, promotional materials, and academic outputs</li>
+                      <li>Assisted in visual composition, typography, and formatting for print and digital media</li>
+                      <li>Collaborated with team members to ensure consistency in branding and visual standards</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <div class="resume__cta-bar reveal">
+              <div class="resume__cta">
+                <a href="assets/resume/Pryzen%20Resume.pdf" class="btn btn--primary resume__dl" data-download-name="Pryzen-Resume.pdf"><span class="btn__label">Download CV</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-ticker" aria-hidden="true">
+        <span class="section-ticker__line"></span>
+        <div class="section-ticker__mask">
+          <div class="section-ticker__track">
+            <div class="section-ticker__col">
+              <span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span>
+              <span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span>
+            </div>
+            <div class="section-ticker__col">
+              <span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span>
+              <span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span><span>Resume</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-num">05</span>
+          <h2 class="section-title">Contact</h2>
+        </header>
+        <div class="contact__wrap">
+          <p class="contact__kicker reveal">Get in touch</p>
+          <p class="contact__lead reveal">Open for collaborations, commissions, and long-term product partnerships.</p>
+          <p class="contact__msg reveal">
+            Have an idea, a brief, or a question? Send a message — I read everything that lands in my inbox and answer as soon as I can.
+          </p>
+          <a href="mailto:princedevilleresx@gmail.com" class="contact__email reveal">princedevilleresx@gmail.com</a>
+          <p class="contact__social-label reveal" id="contact-social-label">Elsewhere</p>
+          <nav class="contact__links reveal" aria-labelledby="contact-social-label">
+            <a href="https://www.linkedin.com/in/pryzen/" class="contact__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.upwork.com/freelancers/~01b6e41eb017288eee" class="contact__link" target="_blank" rel="noopener noreferrer">Upwork</a>
+            <a href="https://ph.pinterest.com/pryzen_x/" class="contact__link" target="_blank" rel="noopener noreferrer">Pinterest</a>
+            <a href="https://wa.me/639639404090" class="contact__link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://discord.com" class="contact__link" target="_blank" rel="noopener noreferrer" title="Add on Discord: _pryzenx">Discord (@_pryzenx)</a>
+            <a href="https://www.onlinejobs.ph/jobseekers/info/5052173" class="contact__link" target="_blank" rel="noopener noreferrer">OnlineJobs.ph</a>
+          </nav>
+        </div>
+      </div>
+      <div class="section-ticker" aria-hidden="true">
+        <span class="section-ticker__line"></span>
+        <div class="section-ticker__mask">
+          <div class="section-ticker__track">
+            <div class="section-ticker__col">
+              <span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span>
+              <span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span>
+            </div>
+            <div class="section-ticker__col">
+              <span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span>
+              <span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span><span>Contact</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__eyebrow">Portfolio</p>
+        <p class="footer__brand">Pryzen</p>
+        <div class="footer__row">
+          <span class="footer__year">© <span id="year"></span></span>
+          <span class="footer__note">Designer · Artist · Illustrator</span>
+        </div>
+        <div class="footer__ticker" aria-hidden="true">
+          <div class="footer__ticker-mask">
+            <div class="footer__ticker-track">
+              <div class="footer__ticker-group">
+                <span>UI/UX</span><span class="footer__ticker-dot">·</span>
+                <span>Branding</span><span class="footer__ticker-dot">·</span>
+                <span>Web</span><span class="footer__ticker-dot">·</span>
+                <span>Motion</span><span class="footer__ticker-dot">·</span>
+                <span>Illustration</span><span class="footer__ticker-dot">·</span>
+                <span>Video</span><span class="footer__ticker-dot">·</span>
+                <span>Design</span><span class="footer__ticker-dot">·</span>
+              </div>
+              <div class="footer__ticker-group">
+                <span>UI/UX</span><span class="footer__ticker-dot">·</span>
+                <span>Branding</span><span class="footer__ticker-dot">·</span>
+                <span>Web</span><span class="footer__ticker-dot">·</span>
+                <span>Motion</span><span class="footer__ticker-dot">·</span>
+                <span>Illustration</span><span class="footer__ticker-dot">·</span>
+                <span>Video</span><span class="footer__ticker-dot">·</span>
+                <span>Design</span><span class="footer__ticker-dot">·</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <button type="button" class="to-top" id="toTop" aria-label="Back to top">
+    <svg class="to-top__svg" viewBox="0 0 48 48" aria-hidden="true">
+      <circle class="to-top__ring" cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+      <circle class="to-top__progress" cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" transform="rotate(-90 24 24)"/>
+      <path class="to-top__arrow" d="M24 32V14M16 22l8-8 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/portfolio.js"></script>
+  <script src="js/certificates.js"></script>
+</body>
+</html>

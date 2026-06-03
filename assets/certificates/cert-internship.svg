@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Layout Artist Internship certificate">
+  <rect width="800" height="560" fill="#f6f4ef"/>
+  <rect x="36" y="36" width="728" height="488" fill="#ffffff" rx="12" stroke="#1a1a1f" stroke-width="2"/>
+  <text x="400" y="130" text-anchor="middle" fill="#1a1a1f" font-family="Georgia, serif" font-size="28" font-weight="700">Certificate of Internship</text>
+  <text x="400" y="200" text-anchor="middle" fill="#2a9d7e" font-family="system-ui, sans-serif" font-size="20" letter-spacing="3">LAYOUT ARTIST</text>
+  <text x="400" y="280" text-anchor="middle" fill="#4a4a52" font-family="system-ui, sans-serif" font-size="16">Northern Mindanao Colleges, Inc.</text>
+  <text x="400" y="340" text-anchor="middle" fill="#1a1a1f" font-family="system-ui, sans-serif" font-size="17" font-weight="600">Prince Angelo B. Devilleres</text>
+  <rect x="300" y="420" width="200" height="4" fill="#2a9d7e" opacity="0.5" rx="2"/>
+  <text x="400" y="460" text-anchor="middle" fill="#95938c" font-family="system-ui, sans-serif" font-size="12">SCHOOL PUBLICATION · 2024</text>
+</svg>

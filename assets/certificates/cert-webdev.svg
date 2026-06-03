@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Web Development certificate">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="560" fill="url(#bg2)"/>
+  <rect x="48" y="48" width="704" height="464" rx="10" fill="none" stroke="rgba(124,244,212,0.4)" stroke-width="1.5"/>
+  <text x="400" y="120" text-anchor="middle" fill="#7cf4d4" font-family="system-ui, sans-serif" font-size="14" letter-spacing="6">FULL-STACK</text>
+  <text x="400" y="200" text-anchor="middle" fill="#f4f2ed" font-family="Georgia, serif" font-size="38" font-weight="700">Web Development</text>
+  <text x="400" y="250" text-anchor="middle" fill="rgba(244,242,237,0.5)" font-family="system-ui, sans-serif" font-size="17">React · Node.js · MongoDB</text>
+  <rect x="280" y="300" width="240" height="3" rx="2" fill="#7cf4d4" opacity="0.6"/>
+  <text x="400" y="360" text-anchor="middle" fill="rgba(244,242,237,0.65)" font-family="system-ui, sans-serif" font-size="15">Prince Angelo B. Devilleres</text>
+  <text x="400" y="460" text-anchor="middle" fill="rgba(124,244,212,0.7)" font-family="system-ui, sans-serif" font-size="13" letter-spacing="3">ACHIEVEMENT AWARD · 2025</text>
+</svg>

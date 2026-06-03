@@ -1,0 +1,365 @@
+/* GENERAL ANIMATION SETTINGS */
+
+.animate-top-left,
+.reverse-animate-top-left,
+.animate-top-right,
+.reverse-animate-top-right,
+.animate-bottom-left,
+.reverse-animate-bottom-left,
+.animate-bottom-right,
+.reverse-animate-bottom-right {
+  animation-fill-mode: forwards;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+/* HOVER ANIMATION */
+
+@keyframes hover {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ANIMATE TOP LEFT */
+
+.animate-top-left {
+  animation-name: top-left;
+}
+
+.reverse-animate-top-left {
+  animation-name: reverse-top-left;
+}
+
+@keyframes top-left {
+  0% {
+    background-image: var(--tl-1);
+  }
+  25% {
+    background-image: var(--tl-2);
+  }
+  50% {
+    background-image: var(--tl-3);
+  }
+  75% {
+    background-image: var(--tl-4);
+  }
+  100% {
+    background-image: var(--tl-5);
+  }
+}
+
+@keyframes reverse-top-left {
+  0% {
+    background-image: var(--tl-5);
+  }
+  25% {
+    background-image: var(--tl-4);
+  }
+  50% {
+    background-image: var(--tl-3);
+  }
+  75% {
+    background-image: var(--tl-2);
+  }
+  100% {
+    background-image: var(--tl-1);
+  }
+}
+.animate-top-right {
+  animation-name: top-right;
+}
+
+.reverse-animate-top-right {
+  animation-name: reverse-top-right;
+}
+
+@keyframes top-right {
+  0% {
+    background-image: var(--tr-1);
+  }
+  25% {
+    background-image: var(--tr-2);
+  }
+  50% {
+    background-image: var(--tr-3);
+  }
+  75% {
+    background-image: var(--tr-4);
+  }
+  100% {
+    background-image: var(--tr-5);
+  }
+}
+
+@keyframes reverse-top-right {
+  0% {
+    background-image: var(--tr-5);
+  }
+  25% {
+    background-image: var(--tr-4);
+  }
+  50% {
+    background-image: var(--tr-3);
+  }
+  75% {
+    background-image: var(--tr-2);
+  }
+  100% {
+    background-image: var(--tr-1);
+  }
+}
+
+/* ANIMATE BOTTOM RIGHT */
+
+.animate-bottom-right {
+  animation-name: bottom-right;
+}
+
+.reverse-animate-bottom-right {
+  animation-name: reverse-bottom-right;
+}
+
+@keyframes bottom-right {
+  0% {
+    background-image: var(--br-1);
+  }
+  25% {
+    background-image: var(--br-2);
+  }
+  50% {
+    background-image: var(--br-3);
+  }
+  75% {
+    background-image: var(--br-4);
+  }
+  100% {
+    background-image: var(--br-5);
+  }
+}
+
+@keyframes reverse-bottom-right {
+  0% {
+    background-image: var(--br-5);
+  }
+  25% {
+    background-image: var(--br-4);
+  }
+  50% {
+    background-image: var(--br-3);
+  }
+  75% {
+    background-image: var(--br-2);
+  }
+  100% {
+    background-image: var(--br-1);
+  }
+}
+/* ANIMATE BOTTOM LEFT */
+
+.animate-bottom-left {
+  animation-name: bottom-left;
+}
+
+.reverse-animate-bottom-left {
+  animation-name: reverse-bottom-left;
+}
+
+@keyframes bottom-left {
+  0% {
+    background-image: var(--bl-1);
+  }
+  25% {
+    background-image: var(--bl-2);
+  }
+  50% {
+    background-image: var(--bl-3);
+  }
+  75% {
+    background-image: var(--bl-4);
+  }
+  100% {
+    background-image: var(--bl-5);
+  }
+}
+
+@keyframes reverse-bottom-left {
+  0% {
+    background-image: var(--bl-5);
+  }
+  25% {
+    background-image: var(--bl-4);
+  }
+  50% {
+    background-image: var(--bl-3);
+  }
+  75% {
+    background-image: var(--bl-2);
+  }
+  100% {
+    background-image: var(--bl-1);
+  }
+}
+
+
+/* Background — floating shapes */
+.bg-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-ambient .wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.wrapper span {
+  position: absolute;
+  bottom: -180px;
+  height: 25px;
+  width: 25px;
+  border: 2px solid rgb(24, 24, 24);
+  animation: box 10s linear infinite;
+}
+.wrapper span:nth-child(1){
+  left: 60px;
+  animation-delay: 0.6s;
+}
+.wrapper span:nth-child(2){
+  left: 10%;
+  animation-delay:  3s;
+  width: 10px;
+  height: 15px;
+}
+.wrapper span:nth-child(3){
+  left: 20%;
+  animation-delay:2s;
+}
+.wrapper span:nth-child(4){
+  left: 30%;
+  animation-delay:2s;
+  width: 20px;
+  height: 20px;
+}
+.wrapper span:nth-child(5){
+  left: 30%;
+  animation-delay:1s; 
+}
+.wrapper span:nth-child(6){
+  left: 65%;
+  animation-delay:7s;
+}
+.wrapper span:nth-child(7){
+  left: 35%;
+  animation-delay:6s;
+  width: 10px;
+  height: 10px;
+}
+.wrapper span:nth-child(8){
+  left: 70%;
+  animation-delay:8s;
+}
+.wrapper span:nth-child(9){
+  left: 80%;
+  animation-delay:6s;
+  width: 10px;
+  height: 10px;
+}
+.wrapper span:nth-child(10){
+  left: 90%;
+  animation-delay:4s;
+}
+@keyframes box{
+  0%{
+      transform: translateY(0);
+      opacity: 1;
+  }
+  80%{
+
+      opacity: .7;
+  }
+  100%{
+      transform: translateY(-800px)rotate(360deg);
+      opacity: 0;
+  }
+}
+@media (max-width: 500px) {
+  .wrapper span {
+    animation: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor,
+  .cursor2 {
+    display: none !important;
+  }
+}
+
+/* Curso Animation */
+.cursor {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  z-index: 9000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: 0.1s;
+}
+
+.cursor2 {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  z-index: 9000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: 0.15s;
+}
+
+
+/* Arrow Animation for See Projects Button */
+.arrow-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-left: 0.5rem;
+}
+
+.project__actions .arrow-icon {
+  margin: 0;
+}
+
+.btn--project-visit:hover .arrow-icon {
+  animation: arrow-slide 0.6s ease-in-out infinite;
+}
+
+@keyframes arrow-slide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

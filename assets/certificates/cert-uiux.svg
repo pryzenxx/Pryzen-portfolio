@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="UI/UX Design certificate">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12121a"/>
+      <stop offset="100%" stop-color="#0a0a0c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7cf4d4" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="560" fill="url(#bg)"/>
+  <rect x="40" y="40" width="720" height="480" rx="12" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.55"/>
+  <rect x="56" y="56" width="688" height="448" rx="8" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+  <circle cx="400" cy="130" r="42" fill="none" stroke="#7cf4d4" stroke-width="2" opacity="0.7"/>
+  <path d="M400 98l8 24h26l-21 15 8 24-21-16-21 16 8-24-21-15h26z" fill="#7cf4d4" opacity="0.85"/>
+  <text x="400" y="220" text-anchor="middle" fill="#f4f2ed" font-family="Georgia, serif" font-size="34" font-weight="700">Certificate of Completion</text>
+  <text x="400" y="268" text-anchor="middle" fill="#7cf4d4" font-family="system-ui, sans-serif" font-size="22" letter-spacing="4">UI/UX DESIGN</text>
+  <text x="400" y="330" text-anchor="middle" fill="rgba(244,242,237,0.55)" font-family="system-ui, sans-serif" font-size="16">Presented to Prince Angelo B. Devilleres</text>
+  <line x1="200" y1="400" x2="320" y2="400" stroke="#ffffff" stroke-width="1" opacity="0.25"/>
+  <line x1="480" y1="400" x2="600" y2="400" stroke="#ffffff" stroke-width="1" opacity="0.25"/>
+  <text x="260" y="430" text-anchor="middle" fill="rgba(244,242,237,0.4)" font-family="system-ui, sans-serif" font-size="12">INSTRUCTOR</text>
+  <text x="540" y="430" text-anchor="middle" fill="rgba(244,242,237,0.4)" font-family="system-ui, sans-serif" font-size="12">2025</text>
+</svg>
