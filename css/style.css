@@ -1019,6 +1019,9 @@ body.has-grid-panel-open .grid-panel--mobile {
 
   #hero {
     width: min(92vw, 24rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero__roles {
@@ -1037,6 +1040,12 @@ body.has-grid-panel-open .grid-panel--mobile {
   #hero__animation {
     width: min(16rem, 72vw);
     height: min(16rem, 72vw);
+    margin-inline: auto;
+  }
+
+  #hero__animation__img {
+    background-position: center center;
+    background-size: contain;
   }
 
   #grid__tl__btn,

@@ -44,6 +44,12 @@
   object-position: center bottom;
 }
 
+@media (max-width: 960px) {
+  .image-protected canvas.hero__portrait-img {
+    object-position: center center;
+  }
+}
+
 /* Hero animation uses CSS background images */
 #hero__animation__img.image-protected {
   -webkit-user-drag: none;

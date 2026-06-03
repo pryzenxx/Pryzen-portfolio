@@ -102,7 +102,15 @@
             const ctx = canvas.getContext("2d");
             if (!ctx) throw new Error("Canvas unavailable");
             const fit = img.classList.contains("hero__portrait-img") ? "contain" : "cover";
-            drawImage(ctx, loader, displayW, displayH, fit, img.classList.contains("hero__portrait-img"));
+            drawImage(
+              ctx,
+              loader,
+              displayW,
+              displayH,
+              fit,
+              img.classList.contains("hero__portrait-img") &&
+                window.matchMedia("(min-width: 961px)").matches
+            );
 
             canvas.dataset.canvasProtected = "true";
             hardenImage(canvas);
