@@ -1038,8 +1038,8 @@ body.has-grid-panel-open .grid-panel--mobile {
   }
 
   #hero__animation {
-    width: min(16rem, 72vw);
-    height: min(16rem, 72vw);
+    width: min(18rem, 80vw);
+    height: min(18rem, 80vw);
     margin-inline: auto;
   }
 
