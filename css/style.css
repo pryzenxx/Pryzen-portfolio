@@ -1128,6 +1128,20 @@ body.has-grid-panel-open .grid-panel--mobile {
 }
 
 @media (max-width: 480px) {
+  #hero {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #hero__animation {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    max-height: min(65vh, 22rem);
+    margin-inline: 0;
+  }
+
   #grid__tl__content.grid-panel--mobile,
   #grid__tr__content.grid-panel--mobile,
   #grid__bl__content.grid-panel--mobile,
