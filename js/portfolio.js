@@ -18,6 +18,30 @@
   const sections = document.querySelectorAll(".section[id]");
   const progressCircle = document.querySelector(".to-top__progress");
 
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  function setActiveNav(id) {
+    navLinks.forEach((link) => {
+      link.classList.toggle("is-active", link.getAttribute("data-section") === id);
+    });
+  }
+
+  function scrollToHomeSection() {
+    if (location.hash) {
+      history.replaceState(null, "", `${location.pathname}${location.search}`);
+    }
+    window.scrollTo(0, 0);
+    setActiveNav("hero");
+  }
+
+  scrollToHomeSection();
+
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) scrollToHomeSection();
+  });
+
   const THEME_KEY = "pryzen-theme";
   const circumference = 2 * Math.PI * 22;
 
@@ -220,6 +244,7 @@
         el.style.opacity = "1";
         el.style.transform = "none";
       });
+      scrollToHomeSection();
       return;
     }
 
@@ -229,6 +254,7 @@
       if (splashPct) splashPct.textContent = "100";
       splashCursor?.classList.add("is-off");
       splash?.classList.add("is-done");
+      scrollToHomeSection();
       introHero();
       return;
     }
@@ -277,7 +303,9 @@
             splash.style.removeProperty("--splash-stroke");
             splash.style.removeProperty("--splash-fill");
           }
+          scrollToHomeSection();
           introHero();
+          if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
         },
       });
     };
@@ -853,12 +881,6 @@
   }
 
   /* ---------- Section nav active ---------- */
-  function setActiveNav(id) {
-    navLinks.forEach((link) => {
-      link.classList.toggle("is-active", link.getAttribute("data-section") === id);
-    });
-  }
-
   if (typeof IntersectionObserver !== "undefined" && sections.length) {
     const obs = new IntersectionObserver(
       () => {
