@@ -4027,6 +4027,10 @@ details.resume-card--dropdown .resume-card__summary:focus-visible {
   color: var(--accent);
 }
 
+.contact__shop {
+  margin-bottom: 2.75rem;
+}
+
 .contact__social-label {
   font-family: var(--font-display);
   margin: 0 0 0.35rem;
