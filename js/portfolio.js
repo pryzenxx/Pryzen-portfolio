@@ -1233,18 +1233,18 @@
 
   initResumeCvDownload();
 
-  /* ---------- Works — Visit → View project (GSAP on card hover / focus) ---------- */
-  function initWorkCardVisitLabelSwap() {
+  /* ---------- Works — category title → View Project (GSAP on card hover / focus) ---------- */
+  function initWorkCardTitleLabelSwap() {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced || typeof gsap === "undefined") return;
 
     document.querySelectorAll(".work-card").forEach((card) => {
-      const visit = card.querySelector(".work-card__visit");
-      const def = visit?.querySelector(".work-card__visit__text--default");
-      const hov = visit?.querySelector(".work-card__visit__text--hover");
-      if (!visit || !def || !hov) return;
+      const title = card.querySelector(".work-card__title");
+      const def = title?.querySelector(".work-card__title__text--default");
+      const hov = title?.querySelector(".work-card__title__text--hover");
+      if (!title || !def || !hov) return;
 
-      visit.classList.add("is-label-gsap");
+      title.classList.add("is-label-gsap");
       gsap.set(hov, { yPercent: 110, opacity: 0 });
       gsap.set(def, { yPercent: 0, opacity: 1 });
 
@@ -1256,7 +1256,7 @@
           .fromTo(hov, { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1 }, 0);
       };
 
-      const toVisit = () => {
+      const toCategory = () => {
         gsap.killTweensOf([def, hov]);
         gsap
           .timeline({ defaults: { duration: 0.34, ease: "power3.inOut" } })
@@ -1266,7 +1266,7 @@
 
       function scheduleIdleLabel() {
         requestAnimationFrame(() => {
-          if (!card.matches(":focus-within")) toVisit();
+          if (!card.matches(":focus-within")) toCategory();
         });
       }
 
@@ -1277,5 +1277,5 @@
     });
   }
 
-  initWorkCardVisitLabelSwap();
+  initWorkCardTitleLabelSwap();
 })();

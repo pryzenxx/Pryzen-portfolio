@@ -2983,102 +2983,73 @@ html[data-theme="light"] .hero__name-en::before {
   margin-bottom: 0.75rem;
 }
 
-.work-card__visit {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.35em 0.85em;
-  margin: 0;
-  min-width: 7.5rem;
-  border-radius: 999px;
-  border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
-  background: transparent;
-  color: var(--text-muted);
-  font: inherit;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.work-card__title {
+  display: inline-block;
+  margin: 0 0 0.5rem;
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--text);
   text-decoration: none;
   cursor: pointer;
-  transition:
-    color 0.3s ease,
-    border-color 0.3s ease,
-    background-color 0.3s ease,
-    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.3s ease;
+  transition: color 0.35s ease;
 }
 
-.work-card__visit__stack {
+.work-card__title__stack {
   position: relative;
   display: grid;
-  justify-items: center;
+  justify-items: start;
   align-items: center;
   overflow: hidden;
-  min-height: 1.25em;
 }
 
-.work-card__visit__text {
+.work-card__title__text {
   grid-area: 1 / 1;
   display: block;
   white-space: nowrap;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
-.work-card__visit__text--hover {
+.work-card__title__text--hover {
   opacity: 0;
 }
 
-.work-card__visit.is-label-gsap .work-card__visit__text {
+.work-card__title.is-label-gsap .work-card__title__text {
   will-change: transform, opacity;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .work-card__visit__text--hover {
+  .work-card__title__text--hover {
     opacity: 0;
     visibility: hidden;
   }
 
-  .work-card:hover .work-card__visit__text--default,
-  .work-card:focus-within .work-card__visit__text--default {
+  .work-card:hover .work-card__title__text--default,
+  .work-card:focus-within .work-card__title__text--default {
     opacity: 0;
     visibility: hidden;
   }
 
-  .work-card:hover .work-card__visit__text--hover,
-  .work-card:focus-within .work-card__visit__text--hover {
+  .work-card:hover .work-card__title__text--hover,
+  .work-card:focus-within .work-card__title__text--hover {
     opacity: 1;
     visibility: visible;
   }
 }
 
-.work-card__visit:hover,
-.work-card__visit:focus-visible {
-  color: var(--bg);
-  background: var(--accent);
-  border-color: var(--accent);
-  transform: translateY(-1px);
-  box-shadow: 0 0.35rem 1rem color-mix(in oklab, var(--accent) 35%, transparent);
-  outline: none;
+.work-card:hover .work-card__title {
+  color: var(--accent);
 }
 
-.work-card:hover .work-card__visit {
-  border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
-  color: var(--text);
-}
-
-.work-card:hover .work-card__visit:hover,
-.work-card:hover .work-card__visit:focus-visible {
-  color: var(--bg);
-}
-
-.work-card__title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
-  margin: 0 0 0.5rem;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
+.work-card__title:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 0.15rem;
 }
 
 .work-card__desc {
@@ -4049,7 +4020,9 @@ details.resume-card--dropdown .resume-card__summary:focus-visible {
 }
 
 .contact__link {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
   padding: 0.2rem 0;
   border: none;
   background: none;
@@ -4065,9 +4038,20 @@ details.resume-card--dropdown .resume-card__summary:focus-visible {
   transform-origin: left center;
 }
 
+.contact__arrow {
+  flex-shrink: 0;
+  opacity: 0.45;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
 .contact__link:hover {
   color: var(--accent);
   transform: translateX(6px);
+}
+
+.contact__link:hover .contact__arrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
 }
 
 .contact__link:focus-visible {
@@ -4487,10 +4471,10 @@ html[data-theme="light"] .footer__brand {
     gap: 0.5rem;
   }
 
-  .work-card__visit {
+  .work-card__title {
     min-height: 44px;
-    padding: 0.45em 1em;
-    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
   }
 
   .resume-card {
